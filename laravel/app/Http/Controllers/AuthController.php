@@ -56,7 +56,7 @@ class AuthController extends Controller
             Auth::login($user);
             return redirect('/dashboard')->with('success', 'Logged in successfully!');
         } catch (\Exception $e) {
-            return redirect('/register')->with('error', 'Google login failed.');
+            return redirect('/')->with('error', 'Google login failed.');
         }
     }
 }

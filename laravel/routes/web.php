@@ -4,20 +4,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FormController;
 
-Route::get('/', function () {
-    return view('form/login');
-});
-Route::post('/',[FormController::class,'form']);
 
-Route::get('/register', function () {
-    return view(view: 'form/register');
+Route::view('/', 'form/login');
+Route::view('/register', 'form/register');
+Route::controller(FormController::class)->group(function () {
+    Route::post('/', 'form');
+    Route::post('/register', 'form');
+    Route::get('/logout', 'logout');
 });
-Route::post('/register',[FormController::class,'form']);
-Route::get('/auth/google', [AuthController::class, 'redirectToGoogle']);
-Route::get('/auth/google/callback', [AuthController::class, 'handleGoogleCallback']);
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/auth/google', 'redirectToGoogle');
+    Route::get('/auth/google/callback', 'handleGoogleCallback');
+});
 
 
 Route::get('/dashboard', function () {
-    return view('index');
+    return view('menus/dashboard');
 });
 
