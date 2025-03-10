@@ -1,4 +1,4 @@
-@extends('index')
+@extends('home')
 
 @section('main')
     <div class="pc-container">
