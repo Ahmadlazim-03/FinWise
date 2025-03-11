@@ -19,16 +19,15 @@ Route::controller(AuthController::class)->group(function () {
 Route::get('/dashboard', function () {
     return view('menus/dashboard');
 });
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/pendapatan&keuangan', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/rekening&saldo', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/analisiskeuangan', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/informasipenganggaran', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/tabungan&investasi', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/hutang&pinjaman', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/exportdata', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/chatbot', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/beritadonasi', [App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/pendapatan&keuangan', [App\Http\Controllers\PendapatanController::class, 'index']);
+Route::get('/rekening&saldo', [App\Http\Controllers\RekeningController::class, 'index']);
+Route::get('/analisiskeuangan', [App\Http\Controllers\AnalisisKeuanganController::class, 'index']);
+Route::get('/informasipenganggaran', [App\Http\Controllers\InformasiPenganggaranController::class, 'index']);
+Route::get('/tabungan&investasi', [App\Http\Controllers\TabunganController::class, 'index']);
+Route::get('/hutang&pinjaman', [App\Http\Controllers\HutangController::class, 'index']);
+Route::get('/exportdata', [App\Http\Controllers\ExportController::class, 'index']);
+Route::get('/chatbot', [App\Http\Controllers\ChatbotController::class, 'index']);
+Route::get('/beritadonasi', [App\Http\Controllers\BeritadonasiController::class, 'index']);
